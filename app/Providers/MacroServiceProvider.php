@@ -10,6 +10,9 @@ class MacroServiceProvider extends ServiceProvider
     private array $macroables = [
         \Illuminate\Database\Schema\Blueprint::class => [
             \App\Mixins\Blueprint::class,
+        ],
+        \Illuminate\Support\Stringable::class => [
+            \App\Mixins\Stringable::class,
         ]
     ];
     /**

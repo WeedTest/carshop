@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\FakerServiceProvider::class,
+        App\Providers\FormatterServiceProvider::class,
 
     ],
 

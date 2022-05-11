@@ -19,5 +19,5 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('debug', function (): void {
-    dd(method_exists(\Illuminate\Database\Schema\Blueprint::class, 'slug'));
+    //
 });
