@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Format\Money;
+namespace App\Services\Format\Methods\Money;
 
 use App\Contracts\Services\FormatterContract;
 
-class UemoaPriceFormatter implements FormatterContract
+class UemoaPriceMethod implements FormatterContract
 {
     public const CURRENCY = 'FCFA';
 

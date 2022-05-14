@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Casts\Price;
+use App\Casts\Mileage;
+use App\Concerns\Model\HasFilter;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -36,12 +39,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Car extends Model
 {
-    use HasFactory;
+    use HasFactory, HasFilter;
 
-    public function price(): Attribute
-    {
-        return Attribute::make(get: fn (int $price) => Str::of($price)->thousand()->spacer('FCFA'));
-    }
+    protected $casts = [
+        'price' => Price::class,
+        'mileage' => Mileage::class,
+    ];
 
     public function teaser(): Attribute
     {

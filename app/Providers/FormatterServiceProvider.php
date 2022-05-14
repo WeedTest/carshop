@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\Format\Money\UemoaPriceFormatter;
 use App\Services\Format\PriceFormatter;
 use Illuminate\Support\ServiceProvider;
+use App\Services\Format\MileageFormatter;
+use App\Services\Format\Methods\Money\UemoaPriceMethod;
 
 class FormatterServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,10 @@ class FormatterServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(PriceFormatter::class, function(){
-            return new PriceFormatter(new UemoaPriceFormatter);
+            return new PriceFormatter(new UemoaPriceMethod);
+        });
+        $this->app->singleton(MileageFormatter::class, function(){
+            return new MileageFormatter('km');
         });
     }
 }

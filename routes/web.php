@@ -14,5 +14,8 @@ use App\Http\Actions\ListingCarsAction;
 */
 
 Route::redirect('/', '/cars');
-
-route::get('/cars', ListingCarsAction::class);
+Route::get('/cars', ListingCarsAction::class);
+Route::get('/test', function(){
+    dd(\App\Models\Car::paginate());
+    dd((new ReflectionClass(\Illuminate\Database\Eloquent\Builder::class))->getMethod('paginate'));
+});
